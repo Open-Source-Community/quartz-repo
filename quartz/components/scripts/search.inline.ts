@@ -300,41 +300,80 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     return new URL(resolveRelative(currentSlug, slug), location.toString())
   }
 
-  const resultToHTML = ({ slug, title, content, tags }: Item) => {
-    const htmlTags = tags.length > 0 ? `<ul class="tags">${tags.join("")}</ul>` : ``
-    const itemTile = document.createElement("a")
-    itemTile.classList.add("result-card")
-    itemTile.id = slug
-    itemTile.href = resolveUrl(slug).toString()
-    itemTile.innerHTML = `
-      <h3 class="card-title">${title}</h3>
-      ${htmlTags}
-      <p class="card-description">${content}</p>
-    `
-    itemTile.addEventListener("click", (event) => {
-      if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return
-      hideSearch()
-    })
+  // const resultToHTML = ({ slug, title, content, tags }: Item) => {
+  //   const htmlTags = tags.length > 0 ? `<ul class="tags">${tags.join("")}</ul>` : ``
+  //   const itemTile = document.createElement("a")
+  //   itemTile.classList.add("result-card")
+  //   itemTile.id = slug
+  //   itemTile.href = resolveUrl(slug).toString()
+  //   itemTile.innerHTML = `
+  //     <h3 class="card-title">${title}</h3>
+  //     ${htmlTags}
+  //     <p class="card-description">${content}</p>
+  //   `
+  //   itemTile.addEventListener("click", (event) => {
+  //     if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return
+  //     hideSearch()
+  //   })
 
-    const handler = (event: MouseEvent) => {
-      if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return
-      hideSearch()
-    }
+  //   const handler = (event: MouseEvent) => {
+  //     if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return
+  //     hideSearch()
+  //   }
 
-    async function onMouseEnter(ev: MouseEvent) {
-      if (!ev.target) return
-      const target = ev.target as HTMLInputElement
-      await displayPreview(target)
-    }
+  //   async function onMouseEnter(ev: MouseEvent) {
+  //     if (!ev.target) return
+  //     const target = ev.target as HTMLInputElement
+  //     await displayPreview(target)
+  //   }
 
-    itemTile.addEventListener("mouseenter", onMouseEnter)
-    window.addCleanup(() => itemTile.removeEventListener("mouseenter", onMouseEnter))
-    itemTile.addEventListener("click", handler)
-    window.addCleanup(() => itemTile.removeEventListener("click", handler))
+  //   itemTile.addEventListener("mouseenter", onMouseEnter)
+  //   window.addCleanup(() => itemTile.removeEventListener("mouseenter", onMouseEnter))
+  //   itemTile.addEventListener("click", handler)
+  //   window.addCleanup(() => itemTile.removeEventListener("click", handler))
 
-    return itemTile
+  //   return itemTile
+  // }
+const resultToHTML = ({ slug, title, content, tags }: Item) => {
+  const htmlTags = tags.length > 0 ? `<ul class="tags">${tags.join("")}</ul>` : ``
+  
+  // Extract parent folder from slug
+  const pathParts = slug.split('/')
+  const parentFolder = pathParts.length > 1 ? pathParts[pathParts.length - 2] : 'Root'
+  
+  const itemTile = document.createElement("a")
+  itemTile.classList.add("result-card")
+  itemTile.id = slug
+  itemTile.href = resolveUrl(slug).toString()
+  itemTile.innerHTML = `
+    <h3 class="card-title">${parentFolder}</h3>
+    <p class="parent-folder">${title}</p>
+    ${htmlTags}
+    <p class="card-description">${content}</p>
+  `
+  itemTile.addEventListener("click", (event) => {
+    if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return
+    hideSearch()
+  })
+
+  const handler = (event: MouseEvent) => {
+    if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return
+    hideSearch()
   }
 
+  async function onMouseEnter(ev: MouseEvent) {
+    if (!ev.target) return
+    const target = ev.target as HTMLInputElement
+    await displayPreview(target)
+  }
+
+  itemTile.addEventListener("mouseenter", onMouseEnter)
+  window.addCleanup(() => itemTile.removeEventListener("mouseenter", onMouseEnter))
+  itemTile.addEventListener("click", handler)
+  window.addCleanup(() => itemTile.removeEventListener("click", handler))
+
+  return itemTile
+}
   async function displayResults(finalResults: Item[]) {
     removeAllChildren(results)
     if (finalResults.length === 0) {
