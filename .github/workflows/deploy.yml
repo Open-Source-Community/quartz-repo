@@ -28,7 +28,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           # Replace with your actual Org and Content Repo names
-          repository:     test-mohammed-community/content-repo
+          repository:         Open-Source-Community/content-wiki-linux
           token: ${{ secrets.ORG_LINUX_WIKI }}
           # This ensures the files go exactly where Quartz expects them
           path: content 
