@@ -130,12 +130,22 @@ function buildOrderingMap(orderingData: OrderingStructure): Map<string, FileOrde
         
         // Store folder README
         const folderReadmePath = normalizeFilePath(path.join(folderPath, "README"))
-        map.set(folderReadmePath, {
-          weight: weight,
-          folderWeight: folderWeight,
-          explicitOrder: true
-        })
-        
+        const folderIndexPath = normalizeFilePath(path.join(folderPath, "index"))
+
+        // map.set(folderReadmePath, {
+        //   weight: weight,
+        //   folderWeight: folderWeight,
+        //   explicitOrder: true
+        // })
+        const folderData = {
+    weight: weight,
+    folderWeight: folderWeight,
+    explicitOrder: true
+  }
+
+  // Set BOTH so either filename works
+  map.set(folderReadmePath, folderData)
+  map.set(folderIndexPath, folderData)
         console.log(`  Folder: ${item.folder}, folderReadme: ${folderReadmePath}, weight: ${weight}, folderWeight: ${folderWeight}`)
         
         weight += 10
