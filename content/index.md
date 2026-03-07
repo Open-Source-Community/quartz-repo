@@ -2,8 +2,11 @@
 title: "🐧 The Linux Wiki — Built by Learners, for Learners"
 ---
 
-![Nano](file.jpeg)
+<div align="center">
 
+![[file.jpeg|600]]
+
+</div>
 
 > _“Understanding Linux is not a task — it’s a journey we take together.”_
 
@@ -38,9 +41,7 @@ Some sections are still under construction — **you can help complete them!**
 | 🧱 **Linux Basics** | ✅ Ready | Shell, filesystem, permissions, processes |
 | ⚙️ **System Internals** | ⚠️ Partial | Kernel, memory, scheduling, DBus, systemd _(help us expand!)_ |
 | 🚀 **DevOps & Automation** | ⚠️ Partial | Docker, CI/CD, Ansible, automation _(contribute your notes!)_ |
-| 🧩 **System Administration** | ⚠️ Partial | Users, services, networking, logs _(coming soon)_ |
 | 🧯 **Common Issues & Fixes** | ⚠️ Partial | Real-world problems & solutions _(share your fixes!)_ |
-| 🧠 **Concepts & Components** | ⚠️ Partial | systemd, udev, init, DBus, Wayland _(help us document!)_ |
 | ⚡ **Embedded & Low-Level Linux** | ⏳ Soon | Bootloaders, device trees, kernel configs _(contributors needed!)_ |
 | 🧰 **Development & Debugging** | ⏳ Soon | Tools, debugging, tracing, system programming |
 | 📚 **References & Resources** | ✅ Ready | Books, articles, tools, contributors |
@@ -63,13 +64,13 @@ Some sections are still under construction — **you can help complete them!**
     <h3>🚀 DevOps & Automation</h3>
     <p>Docker, CI/CD, Ansible, scripts</p>
   </a>
+<a href="./embedded/" class="section-tile">
+    <h3>⚡ Embedded Linux</h3>
+    <p>Bootloaders, kernel configs, low-level tools</p>
+  </a>
   <a href="./issues/" class="section-tile">
     <h3>🧯 Common Issues & Fixes</h3>
     <p>Real-world problems & solutions</p>
-  </a>
-  <a href="./embedded/" class="section-tile">
-    <h3>⚡ Embedded Linux</h3>
-    <p>Bootloaders, kernel configs, low-level tools</p>
   </a>
 </div>
 
@@ -93,10 +94,8 @@ If you see a section that is incomplete, you can:
 - [Linux Basics](./linux-basics/) ✅  
 - [System Internals](./system-internals/) ⚠️  
 - [DevOps & Automation](./devops/) ⚠️  
-- [System Administration](./sysadmin/) ⚠️  
 - [Embedded Linux](./embedded/) ⏳  
 - [Common Issues & Fixes](./issues/) ⚠️  
-- [Concepts & Components](./concepts/) ⚠️  
 - [Development & Debugging](./development/) ⏳  
 - [References](./references/) ✅
 

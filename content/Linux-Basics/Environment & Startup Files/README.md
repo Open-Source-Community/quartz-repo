@@ -121,17 +121,17 @@
 ## How to show environment variables only?
 - To list all environment variables with their values write ```printenv``` without any arguments:   
 
-![list all environment variables](img/enviroment/list-all-env-vars.png)
+![list all environment variables](imgs/dealing-with-users/list-all-env-vars.png)
 
 
 - To list the value of a specific environment variable write ```printenv``` followed by the variable name:     
 
-![list  a specific environment variable](img/enviroment/list-env-var-value.png)
+![list  a specific environment variable](imgs/dealing-with-users/list-env-var-value.png)
 
 ## How to show both environment variables and shell variables?
 - To list all environment variables and all shell variables write ```set``` without any arguments:
 
-![list shell and environment variables](img/enviroment/slist-env-and-shell-vars.png)
+![list shell and environment variables](imgs/dealing-with-users/slist-env-and-shell-vars.png)
 
 ## How to convert Shell Variable to and Environment Variable?
 - You need to ```export```,making it inheritable by child processes, this shell variable.
@@ -140,12 +140,12 @@
 
   + the behavior of a shell variable before exporting it 
   
-![shell variable without exporting](img/enviroment/shell-var-without-export.png)
+![shell variable without exporting](imgs/dealing-with-users/shell-var-without-export.png)
 
 
   + the behavior of a shell variable after exporting it
   
-![export shell variable](img/enviroment/shell-var-with-export.png)
+![export shell variable](imgs/dealing-with-users/shell-var-with-export.png)
  
  
  
@@ -157,17 +157,17 @@
 ## How to create aliases?
 - write ```alias``` followed by ```new command``` followed by ```='original command'```
 
-![aliases](img/enviroment/create-alias.png)
+![aliases](imgs/dealing-with-users/create-alias.png)
 
 ## How to list aliases?
 - To list all aliases write ```alias``` without any arguments
 
-![list aliases](img/enviroment/list-aliases.png)
+![list aliases](imgs/dealing-with-users/list-aliases.png)
 
 
 - To show to value of a specific alias write ```alias``` followed by ```alias name```
 
-![list alias](img/enviroment/show-alias.png)
+![list alias](imgs/dealing-with-users/show-alias.png)
 
 ---
 ## What is a function?
@@ -182,7 +182,7 @@
 
 - Look at the following example:
 
-![bash-function](img/enviroment/creare-function.png)
+![bash-function](imgs/dealing-with-users/creare-function.png)
 
 ---
 
@@ -209,11 +209,11 @@ __So...__
 ## What is difference between Interactive Login Shell and Interactive Non-Login Shell?
 - An interactive login shell is invoked when a user login to the terminal either remotely via ssh or locally, or when Bash is launched with the --login option. 
 
-![login shell](img/enviroment/login-shell.png)
+![login shell](imgs/dealing-with-users/login-shell.png)
 
 - An interactive non-login shell is invoked from the login shell, such as when typing bash in the shell prompt or when opening a new terminal tab.
 
-![login shell](img/enviroment/non-login-shell.png)
+![login shell](imgs/dealing-with-users/non-login-shell.png)
 
 ## Startup files for Login Shell Sessions
 When bash is invoked as Interactive Login Shell, bash looks for the following files in order:
@@ -240,13 +240,13 @@ In addition to reading the startup files above, non-login shells also inherit th
 ## How to check if the shell is login shell or non-login shell?
 - if the output of the ```$0``` variable is    
 
-![$0-login](img/enviroment/$0-login.png)   
+![$0-login](imgs/dealing-with-users/$0-login.png)   
 
      then this shell is a login shell.
 
 - if the output of the ```$0``` variable is  
 
-![$0_noLogin](img/enviroment/$0-noLogin.png)
+![$0_noLogin](imgs/dealing-with-users/$0-noLogin.png)
 
      then this shell is a non login shell.
 
@@ -256,15 +256,15 @@ In addition to reading the startup files above, non-login shells also inherit th
 
   + you can add  aliases to ```~/.bashrc``` as following:
   
-  ![add alias to .bashrc](img/enviroment/insert-aliases.png)
+  ![add alias to .bashrc](imgs/dealing-with-users/insert-aliases.png)
 
   + you can add functions to ```~/.bashrc``` as following: 
   
-  ![add functions to .bashrc](img/enviroment/add-function-bashrc.png)
+  ![add functions to .bashrc](imgs/dealing-with-users/add-function-bashrc.png)
 
   + you can add shell variables to ```~/.bashrc``` as following: 
   
-  ![add shell variables to .bashrc](img/enviroment/insert-shell-vars.png)
+  ![add shell variables to .bashrc](imgs/dealing-with-users/insert-shell-vars.png)
 
 
 ## When should is use ```~/.bash_profile``` file?
@@ -273,7 +273,7 @@ In addition to reading the startup files above, non-login shells also inherit th
 
   + you can add environment variables to ```~/.bash_profile``` as following: 
   
-  ![add environment variables to .bashrc](img/enviroment/insert-env-vars.png)
+  ![add environment variables to .bashrc](imgs/dealing-with-users/insert-env-vars.png)
 ---
 
 ## How to include files in .bashrc file?
@@ -283,11 +283,11 @@ In addition to reading the startup files above, non-login shells also inherit th
 
 - You can put your aliases in different file and source it in .bashrc as folllowing:
 
-![source aliases file](img/enviroment/aliases-file.png)
+![source aliases file](imgs/dealing-with-users/aliases-file.png)
 
 - You can put your functions in different file and source it in .bashrc as folllowing:  
 
-![source aliases file](img/enviroment/functions-file.png)
+![source aliases file](imgs/dealing-with-users/functions-file.png)
 
   NOTE: Functions in the previous figure are written in different valid syntax than the previous one we created before.
   
