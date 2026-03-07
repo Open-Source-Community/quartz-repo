@@ -23,7 +23,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Clean default content
-        run: rm -rf content/*
+        run: rm -rf content/* || true
+             mkdir -p content
       - name: Checkout Content from Repo A
         uses: actions/checkout@v4
         with:
